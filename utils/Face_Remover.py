@@ -10,7 +10,5 @@ class Face_Remover:
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         faces = self.face_cascade.detectMultiScale(gray, 1.3, 5)
         for (x, y, w, h) in faces:
-            # cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 0, 0), 2)
-            # roi_gray = gray[y:y+h, x:x+w]
             frame[y : y + h, x : x + w] = np.zeros_like(frame[y : y + h, x : x + w])
         return frame
